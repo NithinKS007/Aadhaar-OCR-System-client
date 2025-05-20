@@ -35,21 +35,14 @@ client/
 ├── src/                          # Source code folder
 │   ├── api/                      # API service folder
 │   │   ├── ocr.ts                # OCR Extraction API requests
-│   │
-│   ├── components/               # Folder containing React components
-│   │
-│   ├── recapture-buttons/        # Folder for image recapture button components
-│   │   ├── RecaptureBackButton.tsx  # Image recapture button component (back side)
-│   │   ├── RecaptureFrontButton.tsx # Image recapture button component (front side)
-│   │
-│   ├── aadhaar-upload/           # Folder for image upload components
-│   │   ├── AadhaarBack.tsx       # Image upload component (back side of Aadhaar card)
-│   │   ├── AadhaarFront.tsx      # Image upload component (front side of Aadhaar card)
-│   │
-│   ├── ApiResponse.tsx           # Show backend response component
-│   ├── ImagePreview.tsx          # Show uploaded image preview component
-│   ├── ParseAadhaarButton.tsx    # Button component
-│   ├── ParsedData.tsx            # Show parsed data component
+├── src/                          # Source code folder
+│   ├── components/               # Folder containing React components                
+│   │   ├── RecaptureButton.tsx   # Image recapture button component (back side & front side)
+│   │   ├── AadhaarImageUpload.ts # Image upload component (back side of Aadhaar card & front side of Aadhaar card)
+│   │   ├── ApiResponse.tsx       # Show backend response component
+│   │   ├── ImagePreview.tsx      # Show uploaded image preview component
+│   │   ├── ParseAadhaarButton.tsx# Button component
+│   │   ├── ParsedData.tsx        # Show parsed data component
 │   │
 │   ├── config/                   # Configuration files
 │   │   ├── axios.ts              # Axios configuration for API requests

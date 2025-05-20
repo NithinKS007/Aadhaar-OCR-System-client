@@ -9,7 +9,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({ imageSrc }) => {
       <img
         src={imageSrc}
         alt="Aadhaar Front Preview"
-        className="w-full h-[150px] object-contain rounded-xl"
+        className="w-full h-[149px] object-contain rounded-xl"
       />
     </div>
   );

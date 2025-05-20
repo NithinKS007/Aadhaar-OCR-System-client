@@ -1,18 +1,16 @@
 import ApiResponse from "../components/ApiResponse";
 import ParseAadhaarButton from "../components/ParseAadhaarButton";
-import AadhaarFront from "../components/aadhaar-upload/AadhaarFront";
-import AadhaarBack from "../components/aadhaar-upload/AadhaarBack";
 import { sendImageFile } from "../api/ocr";
 import { showErrorToast, showSuccessToast } from "../utils/toast";
 import { useFormik } from "formik";
 import { imageValidation } from "../utils/validationSchema";
 import React, { useState } from "react";
 import ImagePreview from "../components/ImagePreview";
-import RecaptureFrontButton from "../components/recapture-buttons/RecaptureFrontButton";
-import RecaptureBackButton from "../components/recapture-buttons/RecaptureBackButton";
 import ParsedData from "../components/ParsedData";
+import AadhaarImageUpload from "../components/AadhaarImagUpload";
+import RecaptureButton from "../components/RecaptureButton";
 
-interface apiresult {
+interface ApiResult {
   success: boolean;
   status: string;
   message: string;
@@ -39,7 +37,7 @@ const HomePage = () => {
     backImagePreview: null,
   });
   const [showApiResponse, setShowApiResponse] = useState<boolean>(false);
-  const [aadhaarDetails, setAadhaarDetails] = useState<apiresult | null>(null);
+  const [aadhaarDetails, setAadhaarDetails] = useState<ApiResult | null>(null);
 
   const handleFrontFileChange = async (
     event: React.ChangeEvent<HTMLInputElement>
@@ -119,7 +117,7 @@ const HomePage = () => {
     },
   });
 
-  const formatApiResponse = (aadhaarDetails: apiresult) => {
+  const formatApiResponse = (aadhaarDetails: ApiResult) => {
     const { success, status, message, data } = aadhaarDetails;
     const formattedResponse = {
       success: success,
@@ -147,14 +145,18 @@ const HomePage = () => {
             <>
               <ImagePreview imageSrc={images.frontImagePreview} />
               <div className="flex justify-center w-full">
-                <RecaptureFrontButton
-                  handleFrontImageChange={handleFrontFileChange}
+                <RecaptureButton
+                  handleImageChange={handleFrontFileChange}
+                  label="Aadhaar Front"
                 />
               </div>
             </>
           ) : (
             <>
-              <AadhaarFront handleFrontImageChange={handleFrontFileChange} />
+              <AadhaarImageUpload
+                handleImageChange={handleFrontFileChange}
+                label="Aadhaar Front"
+              />
             </>
           )}
           {formik.errors.frontSideImage && formik.touched.frontSideImage && (
@@ -167,14 +169,18 @@ const HomePage = () => {
             <>
               <ImagePreview imageSrc={images.backImagePreview} />
               <div className="flex justify-center w-full">
-                <RecaptureBackButton
-                  handleBackImageChange={handleBackFileChange}
+                <RecaptureButton
+                  handleImageChange={handleBackFileChange}
+                  label="Aadhaar Back"
                 />
               </div>
             </>
           ) : (
             <>
-              <AadhaarBack handleBackImageChange={handleBackFileChange} />
+              <AadhaarImageUpload
+                handleImageChange={handleBackFileChange}
+                label="Aadhaar Back"
+              />
             </>
           )}
           {formik.errors.backSideImage && formik.touched.backSideImage && (
@@ -207,7 +213,7 @@ const HomePage = () => {
           ) : (
             <ApiResponse
               title="API Response"
-              message="Start Performing OCR by inputting your Aadhaar front and back"
+              message={`"Start performing OCR by inputting your Aadhaar front and back images."`}
             />
           )}
         </div>
