@@ -107,16 +107,13 @@ const HomePage = () => {
           showSuccessToast(response.message);
           setAadhaarDetails(response);
           setShowApiResponse(true);
-        } catch (error) {
-          if (error instanceof Error) {
-            console.log(`Api Error: ${error.message}`);
-            showErrorToast(error.message || "Error uploading images");
-            setShowApiResponse(false);
-          } else {
-            console.log("Unexpected error", error);
-            showErrorToast("An unexpected error occurred.");
-            setShowApiResponse(false);
-          }
+        } catch (error: any) {
+          console.log(`API Error ${error}`);
+          const errorMessage =
+            error.response?.data?.message ||
+            "Error uploading images. Please try again.";
+          showErrorToast(errorMessage);
+          console.log(`Api Error: ${error.response?.data?.message}`);
         }
       }
     },
