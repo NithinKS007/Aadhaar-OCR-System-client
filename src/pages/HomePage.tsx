@@ -1,15 +1,15 @@
 import ApiResponse from "../components/ApiResponse";
 import ParseAadhaarButton from "../components/ParseAadhaarButton";
-import AadhaarFront from "../components/AadhaarFront";
-import AadhaarBack from "../components/AadhaarBack";
+import AadhaarFront from "../components/aadhaar-upload/AadhaarFront";
+import AadhaarBack from "../components/aadhaar-upload/AadhaarBack";
 import { sendImageFile } from "../api/ocr";
 import { showErrorToast, showSuccessToast } from "../utils/toast";
 import { useFormik } from "formik";
 import { imageValidation } from "../utils/validationSchema";
 import React, { useState } from "react";
 import ImagePreview from "../components/ImagePreview";
-import RecaptureFrontButton from "../components/RecaptureFrontButton";
-import RecaptureBackButton from "../components/RecaptureBackButton";
+import RecaptureFrontButton from "../components/recapture-buttons/RecaptureFrontButton";
+import RecaptureBackButton from "../components/recapture-buttons/RecaptureBackButton";
 import ParsedData from "../components/ParsedData";
 
 interface apiresult {

@@ -6,12 +6,8 @@ interface AadhaarBackProps {
 const AadhaarBack: React.FC<AadhaarBackProps> = ({ handleBackImageChange }) => {
   return (
     <div className="bg-[#F7F7F7] w-full h-[150px] rounded-xl border border-[#E5E7EB] shadow-sm flex justify-center items-center cursor-pointer">
-      <div
-    
-        className="w-full  h-[150px] flex justify-center items-center cursor-pointer"
-      >
+      <div className="w-full  h-[150px] flex justify-center items-center cursor-pointer">
         <input
-        
           type="file"
           accept="image/*"
           className="absolute opacity-0 md:w-2/5 w-full h-[150px] cursor-pointer"
